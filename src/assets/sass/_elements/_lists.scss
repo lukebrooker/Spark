@@ -1,0 +1,60 @@
+/*
+
+### Lists
+
+#### Unordered List
+
+```
+<ul>
+  <li>List item</li>
+  <li>List item</li>
+  <li>List item</li>
+  <li>List item</li>
+</ul>
+```
+
+#### Ordered List
+
+```
+<ol>
+  <li>List item</li>
+  <li>List item</li>
+  <li>List item</li>
+  <li>List item</li>
+</ol>
+```
+
+*/
+
+
+ul,
+ol {
+  margin: rhythm(.5) 0;
+  padding: 0 0 0 rhythm(1);
+  li {
+    @include adjust-font-size-to($font-size-base);
+  }
+}
+
+/*
+
+#### Definition List
+
+```
+<dl>
+  <dt>Term</dt>
+  <dd>Definition</dd>
+  <dt>Term</dt>
+  <dd>Definition</dd>
+  <dt>Term</dt>
+  <dd>Definition</dd>
+  <dt>Term</dt>
+  <dd>Definition</dd>
+</dl>
+```
+
+*/
+
+dd {
+  margin: 0 0 0 rhythm(1);
+}

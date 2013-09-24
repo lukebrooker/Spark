@@ -1,0 +1,142 @@
+//
+// Background Component - Settings
+// -------------------------------
+
+$bg-pop-shadow : 0 1px 4px rgba($color-black, 0.1) !default;
+
+/*
+
+### Backgrounds
+
+#### Background Levels
+
+```example
+<div class="bg--lowest l--pad-a-1 l--push-b-h">I am so so very low. Go away.</div>
+
+<div class="bg--lower l--pad-a-1 l--push-b-h">I am very low</div>
+
+<div class="bg--low l--pad-a-1 l--push-b-h">I am low</div>
+
+<div class="bg--neutral l--pad-a-1 l--push-b-h">I am keeping the peace. I mean I am neutral.</div>
+
+<div class="bg--high l--pad-a-1 l--push-b-h">I am soooo high</div>
+
+<div class="bg--higher l--pad-a-1 l--push-b-h">I am way higher</div>
+
+<div class="bg--highest l--pad-a-1 l--push-b-h">I am the highest, wooo!</div>
+
+<div class="bg--pop-highest l--pad-a-1 l--push-b-h">Yeah, but I am poppin.</div>
+
+```
+
+*/
+
+.bg--high {
+  @extend .is-transition;
+  background-color: $color-bg-light;
+}
+
+.bg--higher {
+  @extend .is-transition;
+  background-color: $color-bg-lighter;
+}
+
+.bg--highest {
+  @extend .is-transition;
+  background-color: $color-bg-lightest;
+}
+
+.bg--low {
+  @extend .is-transition;
+  background-color: $color-bg-dark;
+}
+
+.bg--lower {
+  @extend .is-transition;
+  background-color: $color-bg-darker;
+}
+
+.bg--lowest {
+  @extend .is-transition;
+  background-color: $color-bg-darkest;
+}
+
+%bg--pop {
+  position: relative;
+}
+
+.bg--pop-high {
+  @extend .bg--high;
+  @extend %bg--pop;
+  @include box-shadow($bg-pop-shadow);
+  z-index: 2;
+}
+
+.bg--pop-higher {
+  @extend .bg--higher;
+  @extend %bg--pop;
+  @include box-shadow($bg-pop-shadow);
+  z-index: 3;
+}
+
+.bg--pop-highest {
+  @extend .bg--highest;
+  @extend %bg--pop;
+  @include box-shadow($bg-pop-shadow);
+  z-index: 4;
+}
+
+.bg--neutral {
+  background-color: $color-bg;
+}
+
+/*
+
+#### Background States
+
+```example
+<div class="bg--primary l--pad-a-1 l--push-b-h">I am Primary.</div>
+
+<div class="bg--secondary l--pad-a-1 l--push-b-h">I am Secondary.</div>
+
+<div class="bg--danger l--pad-a-1 l--push-b-h">Oh noes.</div>
+
+<div class="bg--warning l--pad-a-1 l--push-b-h">Careful.</div>
+
+<div class="bg--unsure l--pad-a-1 l--push-b-h">Are you sure.</div>
+
+<div class="bg--success l--pad-a-1 l--push-b-h">Woo hoo!.</div>
+
+<div class="bg--highlight l--pad-a-1 l--push-b-h">Hi.</div>
+
+```
+
+*/
+
+.bg--primary {
+  background-color: $color-primary;
+}
+
+.bg--secondary {
+  background-color: $color-secondary;
+}
+
+.bg--danger {
+  background-color: tint($color-danger, 80%);
+}
+
+.bg--warning {
+  background-color: tint($color-warning, 80%);
+}
+
+.bg--unsure {
+  background-color: tint($color-unsure, 90%);
+}
+
+.bg--success {
+  background-color: tint($color-success, 80%);
+}
+
+.bg--highlight {
+  background-color: tint($color-highlight, 80%);
+}

@@ -1,0 +1,22 @@
+<div class="menu-items">
+	<a class="kalei-styleguide-menu-heading" href="#"><%= menuTitle %></a>
+	<a href="#" class="kalei-menu-toggle">Menu</a>
+	<ul class="kalei-styleguide-menu">
+
+	<% _.each(categories, function (category) { %>
+		<li>
+			<a class="kalei-styleguide-menu-link" href="#"><%= category.catTitle %></a>
+			<div class="sheet-submenu">
+				<ul>
+					<% _.each(category.catItems, function (categoryItem) { %>
+					<li><%= categoryItem %></li>
+					<% }); %>
+				</ul>
+			</div>
+		</li>
+	<% }); %>
+	<div style="clear: both;"></div>
+</div>
+<div class="menu-expand">
+
+</div>

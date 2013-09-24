@@ -1,0 +1,562 @@
+
+@import 'compass';
+
+$base-font-size: 16px !default;
+$base-line-height: 24px !default;
+
+/*
+# Kalei Themes
+
+To make sure the code demo's are un-affected by Kaleis own styles we only set a few global styles
+
+The menu is fixed and the page contained simply aligns itself 200px from the left.
+
+*/
+html, body, .kalei {
+  height: 100% !important;
+  background: #f6f4f4;
+}
+body {
+  background: #fff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.menu-items {
+  height: 100%;
+}
+.kalei-style-menu-container {
+  @include transition(.3s);
+  position: fixed;
+  background: #fff;
+  height: 100%;
+  border-right: 1px solid #ccc;
+  width: 250px;
+  margin-left: -250px;
+  z-index: 10;
+  .kalei-nav--is-active & {
+    margin-left: 0;
+  }
+}
+.kalei-styleguide-menu {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.kalei-style-page {
+  @include transition(.3s);
+  margin-left: 0;
+  // padding: 12px;
+  background: #fdfdfd;
+  .kalei-nav--is-active & {
+    margin-left: 250px;
+    margin-right: -250px;
+  }
+  @media all and (min-width: 70em) {
+    padding: 0 24px;
+  }
+}
+
+$white: #fff;
+$black: #000;
+$lightest-grey: lighten($black, 95);
+$lighter-grey: lighten($black, 90);
+$light-grey: lighten($black, 80);
+$lightish-grey: lighten($black, 70);
+$grey: lighten($black, 50);
+$darkish-grey: lighten($black, 30);
+$dark-grey: lighten($black, 20);
+$darker-grey: lighten($black, 10);
+$darkest-grey: lighten($black, 5);
+
+.kalei-menu-toggle {
+  @include transition(.3s);
+  position: absolute;
+  top: rhythm(.75);
+  right: rhythm(-1.5);
+  overflow: hidden;
+  width: rhythm(1.5);
+  height: rhythm(1.5);
+  background-color: transparent;
+  text-indent: 100%;
+  border: 1px solid $light-grey;
+  white-space: nowrap;
+  z-index: 20;
+  background: $lightest-grey;
+  &:hover {
+    background: lighten($lighter-grey, 2%);
+  }
+  &:active {
+    background: $lighter-grey;
+  }
+  &:after {
+    @include adjust-font-size-to(30px, 1.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: rhythm(1.5, 30px);
+    height: rhythm(1.5, 30px);
+    color: $darkest-grey;
+    content: "\2261";
+    text-align: center;
+    text-indent: 0;
+    font-family: Arial, sans-serif;
+  }
+  .kalei-nav--is-active & {
+    &:after {
+      color: $light-grey;
+    }
+  }
+}
+
+/*
+## Headings and paragraphs
+```
+<div class="kalei-comments">
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+  <p class="fixie"></p>
+  <ul>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+  </ul>
+</div>
+
+```
+*/
+
+.kalei-comments > h1:first-child,
+.kalei-comments > h2:first-child {
+  margin: 0;
+}
+// .kalei-comments > h1,
+// .kalei-comments > h2,
+// .kalei-comments > h3,
+// .kalei-comments > h4,
+// .kalei-comments > h5,
+// .kalei-comments > h6 {
+//   margin-top: 0;
+// }
+
+.kalei-comments> p,
+.kalei-comments> ul,
+.kalei-comments> ol {
+  margin-bottom: 24px;
+}
+
+.kalei-comments> p a,
+.kalei-comments> p a:visited {
+  padding: 0;
+}
+.kalei-comments > iframe {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+// .kalei-comments > ul,
+// .kalei-comments> ol {
+//   margin-left: 20px;
+// }
+.kalei-comments > ul,
+.kalei-comments> ol,
+.kalei-comments > p {
+  // font-size: 12px;
+}
+
+/*
+## CSS and Comments Layout
+
+These styles make sure the css code block is floated to the right correctly and the comments on the left
+
+```
+<div class="kalei-documentation">
+
+  <div class="kalei-comments-container ">
+    <div class="kalei-comments ">
+      <p>This is a test Kalei comment.</p>
+    </div>
+  </div>
+
+</div>
+```
+*/
+
+.kalei-style-page > .kalei-documentation {
+  position: relative;
+}
+.kalei-comments-container {
+  width: 100%;
+  position: relative;
+}
+
+
+
+/*
+## Code demos
+
+When you use Markdown code blocks ```, Kalei automatically renders the code as HTML and beneath it shows the code block with syntax highlighting.
+```
+<pre>
+  <code>
+    .kalei-comments > pre > code,
+    .kalei-css-container > pre > code {
+      font-size: 11px;
+      opacity: 0.7;
+      white-space: pre-wrap;
+      padding: 10px;
+    }
+  </code>
+</pre>
+```
+*/
+.kalei-comments > pre > code,
+.kalei-comments > code,
+.kalei-comments > p > code,
+.kalei-css-container > pre > code {
+  @include adjust-font-size-to(14px);
+  white-space: pre-wrap;
+  padding: rhythm(.25, 14px);
+}
+
+.kalei-comments > p > code,
+.kalei-comments > ul code,
+.kalei-comments > ol code {
+  background-color: rgba(black, 0.025);
+  padding: rhythm(.125, 14px);
+}
+
+.kalei-comments > ul code,
+.kalei-comments > ol code {
+  @include adjust-font-size-to(14px, 1.5);
+}
+
+.kalei-comments > pre > code {
+  background: transparent;
+}
+
+.kalei-css-container,
+.kalei-comments > pre > code {
+
+    opacity: 0.3;
+}
+.kalei-comments > pre > code:hover,
+.kalei-css-container:hover  {
+  opacity: 1;
+}
+.kalei-css-container.kalei-no-css {
+  display: none;
+}
+.kalei-comments >  pre {
+  margin: 0;
+  border-bottom: 1px solid #ebebeb;
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 24px;
+-webkit-border-radius:  0 0 3px 3px;
+-moz-border-radius:  0 0 3px 3px;
+border-radius:  0 0 3px 3px;
+}
+
+.kalei-comments >  pre> code::before {
+  content: "Code";
+  opacity: 0.3;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #444;
+  color: #ebebeb;
+  -webkit-border-radius: 0px 0 4px 0;
+  -moz-border-radius: 0px 0 4px 0;
+  font-family:  'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border-radius: 0px 0 4px 0;
+}
+
+
+.kalei-comments >  pre> code:hover::before {
+  opacity: 1;
+}
+
+
+.kalei-comments {
+  // background: #f7f7f7;
+  padding: 12px;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid $lighter-grey;
+  @media all and (min-width: 70em) {
+    padding: 24px;
+  }
+}
+
+body .codedemo {
+  position: relative;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAAXNSR0IArs4c6QAAAAZQTFRF+vr6////+o8bnQAAABBJREFUCB1jYPjPgBXhEAYAfr8P8bm+jEoAAAAASUVORK5CYII=);
+  padding: 36px 12px;
+  border: 1px solid #ebebeb ;
+  font-size: 100%;
+  margin-top: 12px;
+-webkit-border-radius: 3px 3px 0 0;
+-moz-border-radius: 3px 3px 0 0;
+border-radius: 3px 3px 0 0;
+}
+
+*:not(.codedemo) .kalei-styleguide-menu-heading h1 {
+  font-size: 22px;
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #444;
+  padding-left: 20px;
+}
+*:not(.codedemo) .kalei-styleguide-menu-heading, .styleguide-menu-heading:visited {
+  text-decoration: none;
+}
+
+*:not(.codedemo) .kalei-styleguide-menu-heading:hover {
+  color: #222;
+}
+
+*:not(.codedemo) .kalei-styleguide-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body .codedemo::after {
+  content: "Example";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #444;
+  color: #ebebeb;
+  -webkit-border-radius: 0px 0 4px 0;
+  -moz-border-radius: 0px 0 4px 0;
+  font-family:  'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border-radius: 3px 0 3px 0;
+}
+
+
+.kalei-styleguide-menu-stylesheets {
+      color: #fff;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 16px;
+  padding: 10px 20px;
+  background: #75eb33;
+  text-shadow: 0px 0px 1px #777;
+}
+
+.kalei-styleguide-menu > li > h3 {
+    color: #444;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 16px;
+  padding-left: 20px;
+
+}
+.kalei-styleguide-menu-link {
+  padding: 10px 0px 10px 20px;
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+  // font-family: Arial;
+  // font-size: 14px;
+  position: relative;
+}
+
+
+.kalei-styleguide-menu-link:hover,
+.kalei-styleguide-menu-link.active {
+  background: #444;
+  color: #ebebeb;
+}
+
+.kalei-styleguide-menu-link:hover:after,
+.kalei-styleguide-menu-link.active:after {
+  content:"";
+  position:absolute;
+  bottom:-13px; /* value = - border-top-width - border-bottom-width */
+  right:0; /* value = (:before left) + (:before border-left) - (:after border-left) */
+  border-width:13px 13px 0;
+  border-style:solid;
+  border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+}
+.kalei-styleguide-menu-link:hover:before,
+.kalei-styleguide-menu-link.active:before {
+  content:"";
+  position:absolute;
+  bottom:-13px; /* value = - border-top-width - border-bottom-width */
+  right:0; /* value = (:before left) + (:before border-left) - (:after border-left) */
+  border-width:13px 13px 0;
+  border-style:solid;
+  border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+}
+
+
+
+.kalei-styleguide-menu-link:hover:before,
+.kalei-styleguide-menu-link.active:before {
+  top:14px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+  right:-1px; /* value = - border-left-width - border-right-width */
+   border-width:6px 5px 6px 0px;
+  border-color:transparent #ccc;
+}
+.kalei-styleguide-menu-link:hover:after,
+.kalei-styleguide-menu-link.active:after {
+  top:15px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+  right:-2px; /* value = - border-left-width - border-right-width */
+   border-width:5px 5px 5px 0px;
+  border-color:transparent #f7f7f7;
+}
+
+.sheet-submenu li.active {
+  background: #ebebeb;
+}
+
+.sheet-submenu ul {
+  margin: 0;
+  padding: 0;
+}
+.sheet-submenu li {
+  padding: 10px 10px 10px 40px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/*
+
+## Helpers
+
+### Colors
+
+Use this code to show your color settings
+
+#### HTML (Example)
+
+<div class="sg-color-primary">$color-primary</div>
+<div class="sg-color-secondary">$color-secondary</div>
+<div class="sg-color-tertiary">$color-tertiary</div>
+<div class="sg-color-base-font">$color-base-font</div>
+
+#### SCSS
+
+// $color-vars:  (color-primary, $color-primary),
+//               (color-secondary, $color-secondary),
+//               (color-tertiary, $color-tertiary),
+//               (color-base-font,$color-base-font);
+
+// @each $var in $color-vars {
+//   .sg-#{nth($var,1)} {
+//     &:before {
+//       background-color: nth($var,2);
+//     }
+//     &:after {
+//       content: "#{nth($var,2)}";
+//     }
+//   }
+// }
+
+*/
+
+[class*="sg-color"] {
+  margin-bottom: rhythm(1);
+  width: 100%;
+  font-family: monospace;
+  @include adjust-font-size-to(14px, 1.5);
+  &:before {
+    display: block;
+    content: "";
+    height: rhythm(2);
+  }
+  &:after {
+    display: block;
+    padding: 0 rhythm(.5);
+    background-color: rgba(black, 0.025);
+  }
+  @media all and (min-width: 70em) {
+    line-height: rhythm(3);
+    padding: 0;
+    background-color: rgba(black, 0.025);
+    &:before {
+      height: rhythm(3);
+      float: left;
+      width: 20%;
+      margin-right: rhythm(.5);
+    }
+    &:after {
+      float: right;
+      width: 20%;
+      text-align: center;
+      margin-left: rhythm(.5);
+    }
+  }
+}
+
+/*
+
+### Typography
+
+Use this code to show your typography settings
+
+#### HTML (Example)
+
+<div class="sg-type-base">$font-family-base</div>
+<div class="sg-type-heading">$font-family-heading</div>
+
+#### SCSS
+
+// $type-vars: (type-base, $font-family-base),
+//             (type-heading, $font-family-heading);
+
+// @each $var in $type-vars {
+//   .sg-#{nth($var,1)} {
+//     &:before {
+//       font-family: nth($var,2);
+//       content: "#{nth($var,2)}";
+//     }
+//   }
+// }
+
+*/
+
+[class*="sg-type"] {
+  margin-bottom: rhythm(1, 14px);
+  padding: 0 rhythm(.5, 14px);
+  width: 100%;
+  background-color: rgba(black, 0.025);
+  font-family: monospace;
+  @include adjust-font-size-to(14px, 2);
+  &:before {
+    @include adjust-font-size-to(18px, 2, 14px);
+    display: block;
+    margin: 0 rhythm(-.5, 18px);
+    padding: 0 rhythm(.5, 18px);
+    background-color: rgba(black, 0.025);
+    content: "";
+  }
+
+}

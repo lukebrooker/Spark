@@ -1,0 +1,171 @@
+//
+// Forms Element - Settings
+// ------------------------
+
+$form-spacing   : .5;
+$form-font-size : $font-size-base;
+
+/*
+
+### Forms
+
+#### Basic Elements
+
+You can use the grid component to help with form layout
+
+```
+<div class="l__wrapper">
+  <form>
+    <label for="basic-input">This is a label.</label>
+    <input type="text" id="basic-input" name="basic-input" placeholder="Standard Input">
+    <fieldset>
+      <legend>Fieldset Name</legend>
+      <input type="text" placeholder="Street">
+      <div class="g--tight">
+        <div class="w--2-4 w--s-2-4 g__item">
+          <input type="text" placeholder="City">
+        </div>
+        <div class="w--1-4 w--s-1-4 g__item">
+          <input type="text" placeholder="State">
+        </div>
+        <div class="w--1-4 w--s-1-4 g__item">
+          <input type="text" placeholder="ZIP">
+        </div>
+      </div>
+    </fieldset>
+    <textarea placeholder="Message"></textarea>
+  </form>
+</div>
+```
+
+*/
+
+form {
+  margin: 0 0 rhythm($form-spacing);
+  font-family: $font-family-base;
+  @include adjust-font-size-to($form-font-size);
+}
+
+fieldset {
+  @include rhythm-borders(1px, $form-spacing, $form-font-size);
+  @include border-radius($default-border-radius);
+  margin: rhythm($form-spacing * 1.5) 0;
+  padding-bottom: 0;
+  border-color: $color-lightish-grey;
+}
+
+legend {
+  border: 0;
+  font-weight: 700;
+  background: $color-white;
+  padding: 0 rhythm($form-spacing / 4);
+  margin-left: rhythm(-($form-spacing / 4));
+}
+
+label {
+  @include adjust-font-size-to($form-font-size);
+  display: block;
+  margin-bottom: rhythm($form-spacing / 2);
+  color: $color-base-font;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  font-family: inherit;
+}
+
+button,
+input {
+  line-height: rhythm(1);
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  outline: none;
+  &:focus {
+    outline: 1px dotted $color-secondary;
+  }
+}
+
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+  opacity: 0.5;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+}
+
+input[type="search"] {
+  @include box-sizing(content-box);
+  -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  @include border-radius($default-border-radius);
+  @include transition($default-transition);
+  @include x-font-size($form-font-size);
+  @include box-shadow($default-box-shadow-inset);
+  padding: rhythm($form-spacing / 2, $form-font-size);
+  display: block;
+  height: rhythm(1.5);
+  width: 100%;
+  border: 1px solid $color-lightish-grey;
+  background-color: $color-lightest-grey;
+  color: $color-base-font;
+  margin: 0 0 rhythm($form-spacing, $form-font-size);
+  &:focus {
+    @include transition($default-transition);
+    outline: none !important;
+    border: 1px solid $color-grey;
+    background: $color-white;
+  }
+  &[disabled] {
+    background-color: $color-light-grey;
+  }
+}
+
+textarea {
+  overflow: auto;
+  height: auto;
+  vertical-align: top;
+}
+
+select {
+  width: 100%;
+}

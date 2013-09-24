@@ -1,0 +1,198 @@
+//
+// Text Component
+// --------------
+
+/*
+
+### Text Modifiers
+
+#### Text Transforms
+
+```example
+<p class="txt--lowercase">Lowercase</p>
+<p class="txt--uppercase">Uppercase</p>
+<p class="txt--capitalize">capitalize</p>
+```
+*/
+
+.txt--lowercase {
+  text-transform: lowercase;
+}
+
+.txt--uppercase {
+  text-transform: uppercase;
+}
+
+.txt--capitalize {
+  text-transform: capitalize;
+}
+
+/*
+
+#### Text Alignment
+
+```example
+<p class="txt--align-left">Align Left</p>
+<p class="txt--align-right">Align Right</p>
+<p class="txt--align-center">Align Center</p>
+```
+
+*/
+
+@include breakpoint($bp-lte-small) {
+  .txt--s-align-left {
+    text-align: left;
+  }
+
+  .txt--s-align-right {
+    text-align: right;
+  }
+
+  .txt--s-align-center {
+    text-align: center;
+  }
+}
+
+@include breakpoint($bp-gte-medium) {
+  .txt--align-left {
+    text-align: left;
+  }
+
+  .txt--align-right {
+    text-align: right;
+  }
+
+  .txt--align-center {
+    text-align: center;
+  }
+}
+
+
+/*
+
+#### Text Invert
+
+```example
+<p class="txt--invert">Invert text with <a href="#">a link</a></p>
+```
+*/
+
+
+.txt--invert {
+  $invert-base-font: contrast-color($color-base-font);
+  color: $invert-base-font;
+  a {
+    color: darken($invert-base-font, 15%) !important;
+    &:hover {
+      color: lighten($invert-base-font, 10%) !important;
+    }
+    &:active,
+    &.is-active {
+      color: lighten($invert-base-font, 15%) !important;
+    }
+  }
+}
+
+
+/*
+
+#### Text Lead
+
+```example
+<p class="txt--lead">Lead text</p>
+```
+
+*/
+
+
+.txt--lead {
+  @include adjust-font-size-to(20px);
+  font-weight: 300;
+  strong {
+    font-weight: 600;
+  }
+}
+
+
+/*
+
+#### Text Hero
+
+```example
+<p class="txt--hero">Hero text</p>
+```
+
+*/
+
+
+.txt--hero {
+  @include adjust-font-size-to(24px);
+  font-weight: 300;
+  strong {
+    font-weight: 600;
+  }
+  @include breakpoint($bp-gte-medium) {
+    @include adjust-font-size-to(28px);
+  }
+}
+
+
+/*
+
+#### Text Mini and Micro
+
+```example
+<p class="txt--mini">Meta mini</p>
+<p class="txt--micro">Meta micro</p>
+```
+
+*/
+
+.txt--mini {
+  @include adjust-font-size-to(14px);
+}
+
+.txt--micro {
+  @include adjust-font-size-to(12px);
+}
+
+/*
+
+#### Text State
+
+```example
+<p class="txt--highlight">State Highlight</p>
+<p class="txt--success">State Success</p>
+<p class="txt--unsure">State Unsure</p>
+<p class="txt--warning">State Warning</p>
+<p class="txt--danger">State Danger</p>
+```
+
+*/
+
+
+.txt--highlight,
+.txt--state-highlight {
+  color: $color-highlight;
+}
+
+.txt--success,
+.txt--state-success {
+  color: $color-success;
+}
+
+.txt--unsure,
+.txt--state-unsure {
+  color: $color-unsure;
+}
+
+.txt--warning,
+.txt--state-warning {
+  color: $color-warning;
+}
+
+.txt--danger,
+.txt--state-danger {
+  color: $color-danger;
+}
+

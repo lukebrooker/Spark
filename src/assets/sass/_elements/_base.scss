@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// Fix Windows 8 responsiveness
+@-ms-viewport {
+  width: device-width;
+}
+
+@viewport {
+  width: device-width;
+}
+
+// Change the box model for everything.
+// See http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+[hidden] {
+  display: none;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  color: $color-base-font;
+  font-size: $font-size-base;
+  // Set the global line height
+  @include adjust-leading-to(1);
+  font-family: $font-family-base;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  // Adjust the UI at different viewport sizes
+  @include breakpoint($bp-gte-medium) {
+    font-size: $font-size-medium;
+  }
+  @include breakpoint($bp-gte-large) {
+    font-size: $font-size-large;
+  }
+  @include breakpoint($bp-gte-huge) {
+    font-size: $font-size-huge;
+  }
+}
+
+body {
+  margin: 0;
+  background: $color-bg;
+  // Smooths out scrolling on ios
+  -webkit-overflow-scrolling: touch;
+}

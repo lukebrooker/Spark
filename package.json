@@ -1,0 +1,37 @@
+{
+  "name": "zanata-proto",
+  "description": "For prototyping new Zanata Ideas",
+  "version": "0.1.0",
+  "homepage": "https://github.com/lukebrooker/zanata-proto",
+  "author": {
+    "name": "Luke Brooker",
+    "email": "mail@Lukebrooker.com",
+    "url": "http://lukebrooker.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lukebrooker/zanata-proto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukebrooker/zanata-proto/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/lukebrooker/zanata-proto/blob/master/LICENSE-MIT"
+    }
+  ],
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.1.2",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-compass": "~0.2.0",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-shell": "~0.2.2",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-connect": "~0.2.0",
+    "grunt-open": "0.2.0",
+    "grunt-contrib-csslint": "~0.1.2"
+  },
+  "keywords": []
+}

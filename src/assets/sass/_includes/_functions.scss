@@ -1,0 +1,30 @@
+//
+// Functions
+// ---------
+// Prefixed with an `x` so they are distinguishable from compass functions
+
+// Takes a text based number between 1-24 and converts it to a number
+
+@function x-convert-number-to-word($num) {
+  $count:1;
+  @each $word in one,two,three,four,five,six,seven,eight,nine,ten,eleven,
+    twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen,
+    twenty,twentyone,twentytwo,twentythree,twentyfour{
+    @if ($count == $num) { @return $word; }
+    $count: $count + 1;
+  }
+  @return "invalid";
+}
+
+// Basic calculator for helping with grid systems
+
+@function x-grid-calc($column-number, $columns) {
+  @return percentage(($column-number / $columns));
+}
+
+// Only use this when you would otherwise use pixels.
+// Try and stick to using the compass `rhythm()` function
+
+@function x-emCalc($pxWidth) {
+  @return $pxWidth / $base-font-size * 1em;
+}

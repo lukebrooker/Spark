@@ -1,0 +1,19 @@
+/*
+
+### Miscellaneous
+
+#### Horizontal Rule
+
+```
+<hr>
+```
+
+*/
+
+hr {
+  height: 0;
+  width: 100%;
+  border-top: 1px solid $color-lightish-grey;
+  margin: rhythm(1) 0;
+  background: transparent;
+}

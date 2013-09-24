@@ -1,0 +1,36 @@
+//
+//  Mixins
+//  ------
+// Prefixed with an `x` so they are distinguishable from compass mixins
+
+// These do the same thing but they are good to use for their specific contexts
+// Also in-case we do want to change them
+
+@mixin x-no-mqueries {
+  @if $breakpoint-no-queries {
+    @content;
+  }
+}
+
+@mixin x-old-ie {
+  @include x-no-mqueries {
+    @content;
+  }
+}
+
+// For changing the font size independently of line height
+
+@mixin x-font-size($to-size, $from-size: $base-font-size) {
+  @if not $relative-font-sizing and $from-size != $base-font-size {
+    @warn "$relative-font-sizing is false but a relative font size was passed to adjust-font-size-to"; }
+  font-size: $rhythm-unit / ($to-size / $from-size);
+}
+
+// Experimental mixin that tries to set the correct max-width of an element to
+// create an optimal line length
+
+@mixin x-readable-line-length($characters: 70, $font-size: $base-font-size) {
+  $font-size: $font-size / 1px;
+  max-width: ($characters / $font-size) * 8em; // This just seems to get good estimates
+}
+

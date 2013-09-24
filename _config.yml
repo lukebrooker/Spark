@@ -1,0 +1,16 @@
+name: Spark
+desription: A jump start for front-end responsive development
+
+paginate: 10
+
+markdown: rdiscount
+pygments: true
+safe: true
+lsi: false
+
+source: ./src/
+destination: ./build/dev/
+
+include: [.htaccess]
+exclude: [config.rb, sass]
+

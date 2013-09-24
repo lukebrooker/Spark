@@ -1,0 +1,196 @@
+//
+// Project settings
+// ================
+
+//
+// Theme Variables
+// ===============
+
+//
+// Fonts
+// -----
+
+// Basic system available font-stacks
+
+$font-serif                        : Georgia, "Times New Roman", Times, serif;
+$font-sans-serif                   : "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+$font-monospace                    : Monaco, Courier, monospace;
+
+// Theme fonts
+// Base font size and line height set in - Compass - Vertical Rhythm
+
+$font-family-base                  : 'Open Sans', $font-sans-serif;
+$font-family-heading               : 'Overpass', $font-sans-serif;
+
+// Font sizes
+// Fonts will get adjusted in the _base.scss element partial
+
+$font-size-base                    : 16px;
+$font-size-medium                  : 16px;
+$font-size-large                   : 18px;
+$font-size-huge                    : 20px;
+
+// This is calculated on $font-size-base and then adjusted accordingly
+
+$font-line-height                  : 26px;
+
+//
+// Colors
+// ------
+
+// Set some default color variables to keep things consistent
+
+$color-white                       : #fff;
+$color-black                       : #000;
+$color-lightest-grey               : lighten($color-black, 95);
+$color-lighter-grey                : lighten($color-black, 90);
+$color-light-grey                  : lighten($color-black, 80);
+$color-lightish-grey               : lighten($color-black, 70);
+$color-grey                        : lighten($color-black, 50);
+$color-darkish-grey                : lighten($color-black, 30);
+$color-dark-grey                   : lighten($color-black, 20);
+$color-darker-grey                 : lighten($color-black, 10);
+$color-darkest-grey                : lighten($color-black, 5);
+
+// Themed color variables
+
+$color-rh-red1                     : #cc0000;
+$color-rh-red2                     : #a30000;
+$color-rh-red3                     : #820000;
+$color-rh-blue                     : #5bc6e8;
+$color-rh-lightblue                : #a3dbe8;
+$color-rh-teal                     : #007a87;
+$color-rh-darkblue                 : #0093d9;
+$color-rh-navy                     : #004153;
+$color-rh-green                    : #7ab800;
+$color-rh-purple                   : #3b0083;
+$color-rh-orange                   : #ec7a08;
+$color-rh-yellow                   : #fecb00;
+
+// Semantic color variables
+
+$color-primary                     : $color-rh-red1;
+$color-secondary                   : $color-rh-red3;
+$color-tertiary                    : $color-rh-navy;
+$color-base-font                   : #252525;
+$color-heading                     : $color-secondary;
+$color-link                        : #4e9fdd;
+$color-link-hover                  : shade($color-link, 20%);
+$color-link-active                 : shade($color-link, 30%);;
+
+// Background color
+// Provide consistent hierarchy
+
+$color-bg                          : #f4f4f4;
+$color-bg-lightest                 : tint($color-bg, 80%);
+$color-bg-lighter                  : tint($color-bg, 60%);
+$color-bg-light                    : tint($color-bg, 40%);
+$color-bg-dark                     : shade($color-bg, 3%);
+$color-bg-darker                   : shade($color-bg, 6%);
+$color-bg-darkest                  : shade($color-bg, 9%);
+
+// Status color variables
+
+$color-highlight                   : $color-link;
+$color-success                     : $color-rh-green;
+$color-warning                     : $color-rh-orange;
+$color-unsure                      : $color-rh-yellow;
+$color-danger                      : $color-rh-red2;
+
+//
+// CSS3 Defaults
+// -------------
+
+$default-border-radius             : 0;
+$default-box-shadow                : 0 0 1px rgba($color-black, 0.15), 0 3px 0 rgba($color-black,0.02);
+$default-box-shadow-inset          : inset 0 1px 2px rgba($color-black, 0.1);
+$default-text-shadow               : 0 1px 2px rgba($color-black, 0.2);
+$default-transition                : 0.2s cubic-bezier(.26, .47, .36, .94);
+
+
+//
+// Vendor Variables
+// ================
+
+//
+// Compass - Vertical Rhythm
+// -------------------------
+
+$base-font-size                    : $font-size-base; //? Makes the font size usable by some compass mixins (it needs px)
+$base-line-height                  : $font-line-height; //? The measurement for vertical rhythm, converts to ems
+$relative-font-sizing              : true;
+$round-to-nearest-half-line        : true; //? eg. if line-height is 24px, it's allowed to make it 12px if needed
+$min-line-padding                  : 2px;
+$font-unit                         : 1em;
+
+//
+// Compass - Color
+// ---------------
+//
+// See compass-style.org for details
+
+$contrasted-dark-default           : $color-darkest-grey;
+$contrasted-light-default          : $color-lightest-grey;
+$contrasted-lightness-threshold    : 60%;
+
+//
+// Breakpoint - default settings
+// -----------------------------
+//
+// Using [Compass Breakpoint plug-in](https://github.com/canarymason/breakpoint)
+
+$breakpoint-default-media          : 'all' !default;
+$breakpoint-default-feature        : 'min-width' !default;
+$breakpoint-default-pair           : 'width' !default;
+$breakpoint-to-ems                 : true;
+$breakpoint-prefixes               : 'webkit' 'moz' !default;
+$breakpoint-prefixed-queries       : 'device-pixel-ratio' 'min-device-pixel-ratio' 'max-device-pixel-ratio' !default;
+$breakpoint-no-queries             : false !default; //? Only true in style-old-ie.scss
+$breakpoint-no-query-wrappers      : false !default;
+
+$breakpoint-base-font-size         : false;
+
+//
+// Breakpoint - mobile first breakpoints values
+// --------------------------------------------
+
+// - Set the min width values
+// - These should not be left the same, adapt them to content
+// - These are set in pixel but will be converted to ems
+
+$bp-small                          : 0;
+$bp-medium                         : 680px;
+$bp-large                          : 960px;
+$bp-huge                           : 1400px;
+$bp-hi-res                         : 2 device-pixel-ratio;
+$bp-portrait                       : orientation portrait;
+$bp-landscape                      : orientation landscape;
+$bp-monochrome                     : monochrome;
+$bp-print                          : print;
+
+//
+// Breakpoint - specific breakpoints
+// ---------------------------------
+
+// - Derived from breakpoint values, also written shorthand.
+// - Use `, 'no-query' true` if you want the styles from this breakpoint to be applied to ie8 and older
+
+$bp-lte-small                      : max-width ($bp-medium - 1px);
+$bp-lte-medium                     : max-width ($bp-large - 1px);
+$bp-lte-large                      : max-width ($bp-huge - 1px), 'no-query' true;
+$bp-e-medium                       : $bp-medium ($bp-large - 1px);
+$bp-e-large                        : $bp-large ($bp-huge - 1px), 'no-query' true;
+$bp-gte-small                      : $bp-small, 'no-query' true;
+$bp-gte-medium                     : $bp-medium, 'no-query' true;
+$bp-gte-large                      : $bp-large, 'no-query' true;
+$bp-gte-huge                       : $bp-huge;
+
+//
+// Global Component Variables
+// ==========================
+
+//
+// Grid Component
+// --------------
+
+$grid-padding : rhythm(2);

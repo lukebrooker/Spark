@@ -1,0 +1,253 @@
+//
+// Text Element
+// ------------
+
+/*
+
+### Text
+
+#### Standard Paragraph
+
+```example
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis luctus nisi et eros bibendum lacinia. Curabitur sed est nec urna pretium vulputate ut eget lectus. In ultricies, tellus non vehicula malesuada, augue sem aliquet tellus, ut faucibus turpis ante quis nibh. Ut vel turpis tortor, a consectetur ipsum. Sed posuere commodo vestibulum. Pellentesque volutpat diam sem.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis luctus nisi et eros bibendum lacinia. Curabitur sed est nec urna pretium vulputate ut eget lectus. In ultricies, tellus non vehicula malesuada, augue sem aliquet tellus, ut faucibus turpis ante quis nibh. Ut vel turpis tortor, a consectetur ipsum. Sed posuere commodo vestibulum. Pellentesque volutpat diam sem.</p>
+```
+
+*/
+
+p {
+  margin: 0 0 rhythm(.5);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*
+
+#### Abreviation
+
+The `<abbr>` tag indicates an abbreviation or an acronym, like "WWW" or "NATO".
+
+By marking up abbreviations you can give useful information to browsers, spell checkers, translation systems and search-engine indexers.
+
+```example
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+```
+
+*/
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*
+
+#### Strong and b
+
+The `<strong>` tag is a phrase tag. It defines important text.
+
+Note: According to the HTML 5 specification, the `<b>` tag should be used as a LAST resort when no other tag is more appropriate. The HTML 5 specification states that headings should be denoted with the `<h1>` to `<h6>` tags, emphasized text should be denoted with the `<em>` tag, important text should be denoted with the `<strong>` tag, and marked/highlighted text should use the `<mark>` tag.
+
+```example
+<strong>Strong text</strong>
+
+<p>This is normal text - <b>and this is bold text</b>.</p>
+```
+
+*/
+
+b,
+strong {
+  font-weight: 600;
+}
+
+/*
+
+#### Emphasis
+
+The `<em>` tag is a phrase tag. It renders as emphasized text.
+
+```example
+<em>Emphasized text</em>
+```
+
+*/
+
+em {
+  font-style: italic;
+}
+
+/*
+
+#### Definition Term
+
+The `<dfn>` tag is a phrase tag. It defines a definition term.
+
+```example
+<dfn>Definition term</dfn>
+```
+
+*/
+
+dfn {
+  font-style: italic;
+}
+
+/*
+
+#### Mark
+
+The `<mark>` tag defines marked text. Use the `<mark>` tag if you want to highlight parts of your text.
+
+```example
+<p>Do not forget to buy <mark>milk</mark> today.</p>
+```
+
+*/
+
+mark {
+  background: $color-highlight;
+  color: $color-base-font;
+}
+
+/*
+
+#### Preformatted Text
+
+The `<pre>` tag defines preformatted text.
+
+Text in a `<pre>` element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks.
+
+The `<code>` tag is a phrase tag. It defines a piece of computer code.
+
+The `<samp>` tag is a phrase tag. It defines sample output from a computer program.
+
+The `<kbd>` tag is a phrase tag. It defines keyboard input.
+
+```example
+<pre>
+Text in a pre element
+is displayed in a fixed-width
+font, and it preserves
+both      spaces and
+line breaks
+</pre>
+
+<div><code>A piece of computer code</code></div>
+
+<div><samp>Sample output from a computer program</samp></div>
+
+<div><kbd>Keyboard input</kbd></div>
+```
+
+*/
+
+code,
+kbd,
+pre,
+samp {
+  padding: 0 rhythm(.125, 14px);
+  font-family: "Monaco", Courier, "Courier New", monospace;
+  @include adjust-font-size-to(14px);
+}
+
+code {
+  @include inline-block;
+  background-color: $color-white;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: rhythm(.5);
+  border-top: 1px solid $color-lighter-grey;
+  border-bottom: 1px solid $color-lighter-grey;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  code {
+    background-color: transparent;
+    font-size: 1em;
+  }
+}
+
+/*
+
+#### Quotes
+
+The `<q>` tag defines a short quotation.
+
+Browsers normally insert quotation marks around the quotation.
+
+The `<blockquote>` tag specifies a section that is quoted from another source.
+
+Browsers usually indent `<blockquote>` elements.
+
+```example
+<p>WWF's goal is to:
+<q>Build a future where people live in harmony with nature.</q>
+We hope they succeed.</p>
+
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+For 50 years, WWF has been protecting the future of nature. The world’s leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+</blockquote>
+```
+
+*/
+
+blockquote {
+  margin: 0 rhythm(1);
+}
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/*
+
+#### Small text
+
+The `<small>` tag defines smaller text (and other side comments).
+
+```example
+<p>W3Schools.com - the world's largest web development site.</p>
+<p><small>Copyright 1999-2050 by Refsnes Data</small></p>
+```
+
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+
+#### Subscript and Superscript
+
+The `<sub>` tag defines subscript text. Subscript text appears half a character below the baseline. Subscript text can be used for chemical formulas, like H2O.
+
+The `<sup>` tag defines superscript text. Superscript text appears half a character above the baseline. Superscript text can be used for footnotes.
+
+```example
+<p>Water is H<sub>2</sub>0.</p>
+
+<p>See WWW<sup>1</sup>.</p>
+```
+
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}

@@ -1,0 +1,31 @@
+//
+// Divide Component
+// ----------------
+
+.divide {
+  border-width: 0;
+  border-style: solid;
+  @include x-old-ie {
+    border-color: tint($color-secondary, 20%);
+  }
+  border-color: rgba($color-secondary, .15);
+}
+
+.d--right {
+  border-right-width: 1px;
+}
+
+.d--left {
+  @extend .divide;
+  border-left-width: 1px;
+}
+
+.d--bottom {
+  @extend .divide;
+  border-bottom-width: 1px;
+}
+
+.d--top {
+  @extend .divide;
+  border-top-width: 1px;
+}

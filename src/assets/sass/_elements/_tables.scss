@@ -1,0 +1,103 @@
+//
+// Table Element
+// -------------
+
+/*
+
+### Tables
+
+The `<table>` tag defines an HTML table.
+
+An HTML table consists of the `<table>` element and one or more `<tr>`, `<th>`, and `<td>` elements.
+
+The `<tr>` element defines a table row, the `<th>` element defines a table header, and the `<td>` element defines a table cell.
+
+A more complex HTML table may also include `<caption>`, `<col>`, `<colgroup>`, `<thead>`, `<tfoot>`, and `<tbody>` elements.
+
+```
+<table>
+  <thead>
+    <tr>
+      <th>Foo</th>
+      <th>Bar</th>
+    </tr>
+      <th>Lorem</th>
+      <th>Ipsum</th>
+      <th>Dolor</th>
+      <th>Sit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Sit</th>
+      <td>Dolor</td>
+      <td>03.788</td>
+      <td>Lorem</td>
+    </tr>
+    <tr>
+      <td>Dolor</td>
+      <td>32.210</td>
+      <td>Lorem</td>
+      <td>Lorem</td>
+    </tr>
+    <tr>
+      <td>Dolor</td>
+      <td>47.797</td>
+      <td>Lorem</td>
+      <td>Lorem</td>
+    </tr>
+    <tr>
+      <th>Sit</th>
+      <td>Dolor</td>
+      <td>09.640</td>
+      <td>Lorem</td>
+    </tr>
+    <tr>
+      <td>Dolor</td>
+      <td>12.117</td>
+      <td>Lorem</td>
+      <td>Lorem</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+table{
+  position: relative;
+  display: block;
+  overflow: auto;
+  width:100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  -webkit-overflow-scrolling: touch;
+}
+
+thead {
+  border-bottom: 1px solid $color-lightish-grey;
+}
+
+th,
+td{
+  padding: rhythm(.125) rhythm(.25);
+  text-align: left;
+  @include breakpoint($bp-gte-medium) {
+    padding: rhythm(.25) rhythm(.5);
+  }
+}
+
+//  Cell alignments
+
+[colspan]{
+    text-align:center;
+}
+[colspan="1"]{
+    text-align:left;
+}
+[rowspan]{
+    vertical-align:middle;
+}
+[rowspan="1"]{
+    vertical-align:top;
+}

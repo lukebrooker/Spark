@@ -1,0 +1,173 @@
+//
+// Layout Component - Settings
+// ---------------------------
+
+$layout-wrapper-max-width       : x-emCalc(1400px);
+$layout-wrapper-min-ie-width    : x-emCalc(900px); // NOTE: old ie only
+$layout-spacing-increments      : 0 0.25 0.5 1 2;
+$layout-spacing-increment-names : 0 "q" "h" 1 2;
+$layout-spacing-sides           : t top, b bottom, l left, r right;
+
+/*
+
+### Layout Helpers
+
+#### Clearfix
+
+```example
+<div class="ph__block l--clearfix">
+  .l--clearfix
+  (use overflow:hidden)
+</div>
+
+<div class="ph__block l--clearfix-overflow">
+  .l--clearfix-overflow
+  (old style)
+</div>
+```
+
+*/
+
+.l--clearfix {
+  @include clearfix;
+}
+
+.l--clearfix-overflow {
+  @include pie-clearfix;
+}
+
+/*
+
+#### Floats
+
+```example
+<div class="ph__block l--float-left">
+  .l--float-left
+</div>
+
+<div class="ph__block l--float-right">
+  .l--float-right
+</div>
+```
+
+*/
+
+.l--float-left {
+  float: left !important;
+}
+
+.l--float-right {
+  float: right !important;
+}
+
+/*
+
+#### Wrapper
+
+$max-site-width is assigned to this
+
+```example
+<div class="ph__block l__wrapper">
+  .l__wrapper
+</div>
+```
+
+*/
+
+.l__wrapper {
+  max-width: $layout-wrapper-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $grid-padding / 4;
+  @include breakpoint($bp-gte-medium) {
+    padding: 0 $grid-padding / 2;
+  }
+  @include breakpoint($bp-gte-large) {
+    padding: 0 $grid-padding;
+  }
+  @include x-no-mqueries {
+    min-width: $layout-wrapper-min-ie-width; // ? Sets a min-width in ie so it doesn't get too squashed
+  }
+}
+
+/*
+
+#### Padding and Margin(Push)
+
+These classes use `!important` as you would not be applying these should always "win".
+Only use them if it does not make sense to add this styling to another element/component.
+
+The structure of the these classes is:
+
+`.l--<pad/push>-<side>-<measurement>`
+
+Your options for `<side>` are:
+
+* t (top)
+* r (right)
+* b (bottom)
+* l (left)
+* h (horizontal)
+* v (vertical)
+* a (all)
+
+Your options for `<measurement>` are:
+
+* 0 (Use this to remove margin or padding from something e.g. Headings)
+* q (quarter)
+* h (half)
+* 1
+* 2
+
+Measurements are based on line length.
+
+```example
+<div class="ph__block l--push-t-2">
+  .l--push-t-2
+</div>
+
+<div class="ph__block l--push-v-1">
+  .l--push-v-1
+</div>
+
+<div class="ph__block l--pad-h-h">
+  .l--pad-h-h
+</div>
+```
+
+*/
+
+@each $i in  $layout-spacing-increments {
+  $i-name: nth($layout-spacing-increment-names, index($layout-spacing-increments, $i));
+  @each $side in  $layout-spacing-sides {
+    .l--push-#{nth($side,1)}-#{$i-name} {
+      margin-#{nth($side,2)}: rhythm($i) !important;
+    }
+    .l--pad-#{nth($side,1)}-#{$i-name} {
+      padding-#{nth($side,2)}: rhythm($i) !important;
+    }
+  }
+  .l--push-v-#{$i-name} {
+    margin-top: rhythm($i) !important;
+    margin-bottom: rhythm($i) !important;
+  }
+  .l--pad-v-#{$i-name} {
+    padding-top: rhythm($i) !important;
+    padding-bottom: rhythm($i) !important;
+  }
+  .l--push-h-#{$i-name} {
+    margin-left: rhythm($i) !important;
+    margin-right: rhythm($i) !important;
+  }
+  .l--pad-h-#{$i-name} {
+    padding-left: rhythm($i) !important;
+    padding-right: rhythm($i) !important;
+  }
+  .l--push-a-#{$i-name} {
+    margin: rhythm($i) !important;
+  }
+  .l--pad-a-#{$i-name} {
+    padding: rhythm($i) !important;
+  }
+}
+

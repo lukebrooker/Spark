@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+# TODO: Add team
+
+  <name> -- <role> -- <twitter>
+
+# THANKS
+# TODO: Add thanks
+
+  <name>
+
+# TECHNOLOGY COLOPHON
+# TODO: Add tech
+
+  HTML5, CSS3
+  Normalize.css, jQuery, Modernizr

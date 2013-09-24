@@ -1,0 +1,5 @@
+{% if page.layout == "home" %}
+<h1 class="header__title"><a href="/"><img class="header__site-logo" src="{% if page.root %}{{ page.root }}{% endif %}logo.svg"> Zanata</a></h1>
+{% else %}
+<h2 class="header__title"><a href="/"><img class="header__site-logo" src="{% if page.root %}{{ page.root }}{% endif %}logo.svg"> Zanata</a></h2>
+{% endif %}

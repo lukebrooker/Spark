@@ -1,0 +1,159 @@
+//
+// Placeholder Component - Settings
+// --------------------------------
+
+$placeholder-type       : (type-base, $font-family-base),
+                          (type-heading, $font-family-heading);
+
+$placeholder-rh-color   : (color-rh-red1, $color-rh-red1),
+                          (color-rh-red2, $color-rh-red2),
+                          (color-rh-red3, $color-rh-red3),
+                          (color-rh-blue, $color-rh-blue),
+                          (color-rh-lightblue, $color-rh-lightblue),
+                          (color-rh-teal, $color-rh-teal),
+                          (color-rh-darkblue, $color-rh-darkblue),
+                          (color-rh-navy, $color-rh-navy),
+                          (color-rh-green, $color-rh-green),
+                          (color-rh-purple, $color-rh-purple),
+                          (color-rh-orange, $color-rh-orange),
+                          (color-rh-yellow, $color-rh-yellow);
+
+$placeholder-color      : (color-primary, $color-primary),
+                          (color-secondary, $color-secondary),
+                          (color-tertiary, $color-tertiary),
+                          (color-base-font, $color-base-font),
+                          (color-heading, $color-heading),
+                          (color-bg, $color-bg),
+                          (color-link, $color-link),
+                          (color-highlight, $color-highlight),
+                          (color-success, $color-success),
+                          (color-warning, $color-warning),
+                          (color-unsure, $color-unsure),
+                          (color-danger, $color-danger);
+
+/*
+
+### Red Hat Colors
+
+Official Red Hat Colors
+*/
+@each $var in $placeholder-rh-color {
+/*
+<div class="ph__#{nth($var,1)}">$#{nth($var,1)}</div>
+*/
+}
+
+[class*="ph__color"] {
+  margin-bottom: rhythm(1);
+  width: 100%;
+  font-family: $font-monospace;
+  line-height: rhythm(1.5);
+  &:before {
+    display: block;
+    content: "";
+    height: rhythm(2);
+  }
+  &:after {
+    display: block;
+    padding: 0 rhythm(.5);
+    background-color: rgba($color-black, 0.025);
+  }
+  @include breakpoint($bp-gte-large, $no-query: true) {
+    line-height: rhythm(3);
+    padding: 0;
+    background-color: rgba($color-black, 0.025);
+    &:before {
+      height: rhythm(3);
+      float: left;
+      width: 20%;
+      margin-right: rhythm(.5);
+    }
+    &:after {
+      float: right;
+      width: 20%;
+      text-align: center;
+      margin-left: rhythm(.5);
+    }
+  }
+}
+
+@each $var in $placeholder-rh-color {
+  .ph__#{nth($var,1)} {
+    &:before {
+      background-color: nth($var,2);
+    }
+    &:after {
+      content: "#{nth($var,2)}";
+    }
+  }
+}
+
+/*
+
+### Colors
+
+Used in development
+*/
+@each $var in $placeholder-color {
+/*
+<div class="ph__#{nth($var,1)}">$#{nth($var,1)}</div>
+*/
+}
+
+@each $var in $placeholder-color {
+  .ph__#{nth($var,1)} {
+    &:before {
+      background-color: nth($var,2);
+    }
+    &:after {
+      content: "#{nth($var,2)}";
+    }
+  }
+}
+
+/*
+### Type
+
+<div class="ph__type-base">$font-family-base</div>
+<div class="ph__type-heading">$font-family-heading</div>
+
+*/
+
+[class*="ph__type"] {
+  margin-bottom: rhythm(1);
+  padding: 0 rhythm(.5);
+  width: 100%;
+  background-color: rgba($color-black, 0.025);
+  font-family: $font-monospace;
+  line-height: rhythm(1.5);
+  line-height: rhythm(2);
+  &:before {
+    display: block;
+    margin: 0 rhythm(-.5);
+    padding: 0 rhythm(.5);
+    background-color: rgba($color-black, 0.025);
+    content: "";
+  }
+
+}
+
+@each $var in $placeholder-type {
+  .ph__#{nth($var,1)} {
+    &:before {
+      font-family: nth($var,2);
+      content: "#{nth($var,2)}";
+    }
+  }
+}
+
+.ph__block {
+  line-height: rhythm(5);
+  text-align: center;
+  background-color: $color-lighter-grey;
+  display: block;
+}
+
+.ph__inline-block {
+  @extend .ph__block;
+  display: inline-block;
+}

@@ -1,0 +1,23 @@
+@-webkit-keyframes pulse {
+  0% {
+    @include transform3d(scale3d(1,1,1));
+    @include opacity(1);
+  }
+  50% {
+    @include transform3d(scale3d(.8,.8,1));
+    @include opacity(.5);
+  }
+  100% {
+    @include transform3d(scale3d(1,1,1));
+    @include opacity(1);
+  }
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(360deg));
+  }
+}

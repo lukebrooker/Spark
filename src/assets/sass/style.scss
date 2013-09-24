@@ -1,0 +1,79 @@
+//
+// Main Stylesheet
+// ---------------
+// The is the only file rendered by Sass besides style-old-ie.scss, which is
+// based on this.
+
+/*
+
+# Styleguide
+*/
+
+//
+// Import vendors
+
+@import "compass";
+@import "breakpoint";
+
+/*
+
+## Settings
+*/
+
+@import "settings";
+
+// NOTE: This show examples of colors, typography etc. This should be included
+// in a new style guide generator so it won't be needed here.
+@import "_components/placeholders";
+
+//
+// Includes
+// Don't include this heading in the style guide as there will be no output
+
+@import "_includes/functions";
+@import "_includes/mixins";
+
+/*
+
+## Elements
+NOTE: No classes should go in element files
+
+*/
+
+@import "_elements/fonts";
+@import "_elements/base";
+@import "_elements/headings";
+@import "_elements/text";
+@import "_elements/links";
+@import "_elements/lists";
+@import "_elements/tables";
+@import "_elements/forms";
+@import "_elements/media";
+@import "_elements/misc";
+
+/*
+
+## Global Components
+
+These are components that can be utilised or are depended on by other components
+
+*/
+
+@import "_globals/l-layout";
+@import "_globals/g-grid";
+// This needs to come after grids to beat specificity
+@import "_globals/w-widths";
+@import "_globals/is-states";
+@import "_globals/txt-text";
+@import "_globals/d-divide";
+@import "_globals/bg-background";
+@import "_globals/a-animations";
+
+@import "_globals/i-icons";
+
+/*
+
+## Componenents
+
+*/
+

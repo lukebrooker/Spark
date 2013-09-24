@@ -1,0 +1,50 @@
+/*
+
+### Links
+
+```
+<a href="#">Link</a>
+<br>
+<a href="#" class=":hover">Link (Hover)</a>
+<br>
+<a href="#" class=":active">Link (Active)</a>
+<br>
+<a href="#" class=":focus">Link (Focus)</a>
+```
+
+*/
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  cursor: pointer;
+  @include transition($default-transition);
+}
+
+// Use .\3A so style guide can reference pseudo classes
+// e.g. <a href="#" class=":hover">Hover Button</a>
+
+a:hover,
+.\3A hover,
+a:focus,
+.\3A focus {
+  color: $color-link-hover;
+}
+
+a:focus,
+.\3A focus {
+  outline: thin dotted;
+}
+
+a:active,
+.\3A active
+a:hover,
+.\3A hover {
+  outline: 0;
+}
+
+a:active,
+a.is-active,
+.\3A active {
+  color: $color-link-active;
+}

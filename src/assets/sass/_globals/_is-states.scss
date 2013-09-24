@@ -1,0 +1,51 @@
+/*
+
+### States
+
+Prefixed with `is-` the can be added to any element to change its visible state.
+
+*/
+
+.is-hidden {
+  display: none !important;
+}
+
+@include breakpoint($bp-lte-small) {
+  .is-hidden--s {
+    display: none !important;
+  }
+}
+
+@include breakpoint($bp-e-medium) {
+  .is-hidden--m {
+    display: none !important;
+  }
+}
+
+@include breakpoint($bp-gte-medium) {
+  .is-hidden--m-up {
+    display: none !important;
+  }
+}
+
+@include breakpoint($bp-e-large) {
+  .is-hidden--l {
+    display: none !important;
+  }
+}
+
+@include breakpoint($bp-gte-huge) {
+  .is-hidden--h {
+    display: none !important;
+  }
+}
+
+.is-invisible {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.is-transition {
+  @include transition($default-transition);
+}

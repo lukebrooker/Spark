@@ -1,0 +1,266 @@
+//
+// Grid Component - Settings
+// -------------------------
+
+// This is defined globally so it can be used by other global components
+
+// $grid-padding : rhythm(2) !default;
+
+/*
+
+###  The Grid
+
+#### Standard Grid
+
+```example
+<div class="l__wrapper">
+  <div class="g">
+    <div class="w--1 g__item"><div class="ph__block">One Whole</div></div>
+  </div>
+
+  <div class="g">
+    <div class="w--5-6 g__item">
+      <div class="g">
+        <div class="w--1-2 g__item"><div class="ph__block">One Half of Five Sixths</div></div>
+        <div class="w--1-2 g__item"><div class="ph__block">One Half of Five Sixths</div></div>
+      </div>
+    </div>
+    <div class="w--1-6 g__item"><div class="ph__block">One Sixth</div></div>
+  </div>
+
+  <div class="g">
+    <div class="w--2-3 g__item"><div class="ph__block">Two Thirds</div></div>
+    <div class="w--1-3 g__item"><div class="ph__block">One Third</div></div>
+  </div>
+
+  <div class="g">
+    <div class="w--3-10 g__item"><div class="ph__block">Three Tenths</div></div>
+    <div class="w--7-10 g__item"><div class="ph__block">Seven Tenths</div></div>
+  </div>
+</div>
+```
+
+*/
+
+.g {
+  @include pie-clearfix; // Compass mixin
+  margin: 0;
+  margin-left: - $grid-padding/4;
+  padding: 0;
+  list-style: none;
+  letter-spacing:-0.31em; // Inline block spacing hack - See https://github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
+  @include breakpoint($bp-gte-medium) {
+    margin-left: - $grid-padding/2;
+  }
+  @include breakpoint($bp-gte-large) {
+    margin-left: - $grid-padding;
+  }
+  > .g {
+    margin-left: 0;
+  }
+}
+
+.opera:-o-prefocus,
+.grid {
+  word-spacing: -0.43em; // Inline block spacing hack - See https://github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
+}
+
+.g__item {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  padding-left: $grid-padding/4;
+  width: 100%;
+  vertical-align: top;
+  word-spacing: normal; // Inline block spacing hack
+  letter-spacing: normal; // Inline block spacing hack
+  *zoom: 1;
+  @include breakpoint($bp-gte-medium) {
+    padding-left: $grid-padding/2;
+  }
+  @include breakpoint($bp-gte-large) {
+    padding-left: $grid-padding;
+  }
+}
+
+/*
+
+#### Tight Grid
+
+Tight grids have all the properties of regular grids, but with half the spacing.
+
+```example
+<div class="l__wrapper">
+  <div class="g--tight">
+    <div class="w--5-6 g__item"><div class="ph__block">Five Sixths</div></div>
+    <div class="w--1-6 g__item"><div class="ph__block">One Sixth</div></div>
+  </div>
+</div>
+```
+
+*/
+
+.g--tight{
+  @extend .g;
+  margin-left: - $grid-padding/16;
+  margin-right: - $grid-padding/16;
+  @include breakpoint($bp-gte-medium) {
+    margin-left: - $grid-padding/8;
+    margin-right: - $grid-padding/8;
+  }
+  @include breakpoint($bp-gte-large) {
+    margin-left: - $grid-padding/4;
+    margin-right: - $grid-padding/4;
+  }
+  > .g__item{
+    padding-left: $grid-padding/16;
+    padding-right: $grid-padding/16;
+    @include breakpoint($bp-gte-medium) {
+      padding-left: $grid-padding/8;
+      padding-right: $grid-padding/8;
+    }
+    @include breakpoint($bp-gte-large) {
+      padding-left: $grid-padding/4;
+      padding-right: $grid-padding/4;
+    }
+  }
+}
+
+/*
+
+#### Tighter Grid
+
+Tighter grids have all the properties of regular grids, but with a quarter the spacing.
+
+```example
+<div class="l__wrapper">
+  <div class="g--tighter">
+    <div class="w--5-6 g__item"><div class="ph__block">Five Sixths</div></div>
+    <div class="w--1-6 g__item"><div class="ph__block">One Sixth</div></div>
+  </div>
+</div>
+```
+
+*/
+
+.g--tighter{
+  @extend .g;
+  margin-left: - $grid-padding/16;
+  @include breakpoint($bp-gte-medium) {
+    margin-left: - $grid-padding/8;
+  }
+  @include breakpoint($bp-gte-large) {
+    margin-left: - $grid-padding/4;
+  }
+  > .g__item{
+    padding-left: $grid-padding/16;
+    @include breakpoint($bp-gte-medium) {
+      padding-left: $grid-padding/8;
+    }
+    @include breakpoint($bp-gte-large) {
+      padding-left: $grid-padding/4;
+    }
+  }
+}
+
+/*
+
+#### Collapsed Grid
+
+Collapsed grids have all the properties of regular grids, minus any spacing.
+
+```example
+<div class="l__wrapper">
+  <div class="g--collapsed">
+    <div class="w--5-6 g__item"><div class="ph__block">Five Sixths</div></div>
+    <div class="w--1-6 g__item"><div class="ph__block">One Sixth</div></div>
+  </div>
+</div>
+```
+
+*/
+
+.g--collapsed{
+  @extend .g;
+  margin-left:0;
+
+  > .g__item{
+    padding-left:0;
+  }
+}
+
+/*
+
+#### Reversed Grid
+
+```example
+<div class="l__wrapper">
+  <div class="g--rev">
+    <div class="w--5-6 g__item"><div class="ph__block">Five Sixths</div></div>
+    <div class="w--1-6 g__item"><div class="ph__block">One Sixth</div></div>
+  </div>
+</div>
+```
+
+*/
+
+.g--rev{
+  @extend .g;
+  direction:rtl;
+  text-align:left;
+
+  > .g__item{
+    direction:ltr;
+    text-align:left;
+  }
+}
+
+/*
+
+#### Right Aligned Grid
+
+Align the entire grid to the right.
+
+```example
+<div class="l__wrapper">
+  <div class="g--right">
+    <div class="w--3-6 g__item"><div class="ph__block">Three Sixths</div></div>
+    <div class="w--1-6 g__item"><div class="ph__block">One Sixth</div></div>
+  </div>
+</div>
+```
+*/
+
+.g--right{
+  @extend .g;
+  text-align:right;
+
+  > .g__item{
+      text-align:left;
+  }
+}
+
+/*
+
+#### Center Aligned Grid
+
+Centered grids align grid items centrally without needing to use push or pull classes.
+
+```example
+<div class="l__wrapper">
+  <div class="g--centered">
+    <div class="w--3-6 g__item"><div class="ph__block">Three Sixths</div></div>
+    <div class="w--1-6 g__item"><div class="ph__block">One Sixth</div></div>
+  </div>
+</div>
+```
+*/
+
+.g--centered{
+  @extend .g;
+  text-align:center;
+
+  > .g__item{
+      text-align:left;
+  }
+}

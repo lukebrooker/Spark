@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{ page.title }}{% if site.name %} | {{ site.name }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="author" content="{{ site.author }}">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <meta http-equiv="cleartype" content="on">
+
+  <!-- Prefetch DNS for external assets (Twitter widgets etc). -->
+  <!-- TODO: Add prefetches -->
+
+  <!-- TODO: Insert logo link -->
+  <link rel="logo" type="image/svg" href=""/>
+
+  <!-- TODO: Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!--[if lt IE 8]>
+    <link rel="stylesheet" href="{% if page.root %}{{ page.root }}{% endif %}assets/css/style-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="{% if page.root %}{{ page.root }}{% endif %}assets/css/style.css">
+  <!--<![endif]-->
+
+  <!--[if (lt IE 9) & (!IEMobile)]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+  <![endif]-->
+
+  <!-- JavaScript -->
+  <!-- TODO: Add modernizr here -->
+  <!-- <script src="js/vendor/<filename>.js"></script> -->
+
+</head>
+
+<body>
+
