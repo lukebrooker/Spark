@@ -1,8 +1,8 @@
 {
-  "name": "zanata-proto",
-  "description": "For prototyping new Zanata Ideas",
+  "name": "spark",
+  "description": "A jump start for front-end responsive development.",
   "version": "0.1.0",
-  "homepage": "https://github.com/lukebrooker/zanata-proto",
+  "homepage": "https://github.com/lukebrooker/spark",
   "author": {
     "name": "Luke Brooker",
     "email": "mail@Lukebrooker.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/lukebrooker/zanata-proto.git"
+    "url": "git://github.com/lukebrooker/spark.git"
   },
   "bugs": {
-    "url": "https://github.com/lukebrooker/zanata-proto/issues"
+    "url": "https://github.com/lukebrooker/spark/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/lukebrooker/zanata-proto/blob/master/LICENSE-MIT"
+      "url": "https://github.com/lukebrooker/spark/blob/master/LICENSE-MIT"
     }
   ],
   "devDependencies": {
