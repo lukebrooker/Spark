@@ -45,15 +45,18 @@
 .g {
   @include pie-clearfix; // Compass mixin
   margin: 0;
-  margin-left: - $grid-padding/4;
+  margin-left: - $grid-padding/8;
+  margin-right: - $grid-padding/8;
   padding: 0;
   list-style: none;
   letter-spacing:-0.31em; // Inline block spacing hack - See https://github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
   @include breakpoint($bp-gte-medium) {
-    margin-left: - $grid-padding/2;
+    margin-left: - $grid-padding/4;
+    margin-right: - $grid-padding/4;
   }
   @include breakpoint($bp-gte-large) {
-    margin-left: - $grid-padding;
+    margin-left: - $grid-padding/2;
+    margin-right: - $grid-padding/2;
   }
   > .g {
     margin-left: 0;
@@ -69,17 +72,20 @@
   display: inline-block;
   margin: 0;
   padding: 0;
-  padding-left: $grid-padding/4;
+  padding-left: $grid-padding/8;
+  padding-right: $grid-padding/8;
   width: 100%;
   vertical-align: top;
   word-spacing: normal; // Inline block spacing hack
   letter-spacing: normal; // Inline block spacing hack
   *zoom: 1;
   @include breakpoint($bp-gte-medium) {
-    padding-left: $grid-padding/2;
+    padding-left: $grid-padding/4;
+    padding-right: $grid-padding/4;
   }
   @include breakpoint($bp-gte-large) {
-    padding-left: $grid-padding;
+    padding-left: $grid-padding/2;
+    padding-right: $grid-padding/2;
   }
 }
 
@@ -145,20 +151,26 @@ Tighter grids have all the properties of regular grids, but with a quarter the s
 
 .g--tighter{
   @extend .g;
-  margin-left: - $grid-padding/16;
+  margin-left: - $grid-padding/32;
+  margin-right: - $grid-padding/32;
   @include breakpoint($bp-gte-medium) {
-    margin-left: - $grid-padding/8;
+    margin-left: - $grid-padding/16;
+    margin-right: - $grid-padding/16;
   }
   @include breakpoint($bp-gte-large) {
-    margin-left: - $grid-padding/4;
+    margin-left: - $grid-padding/8;
+    margin-right: - $grid-padding/8;
   }
   > .g__item{
-    padding-left: $grid-padding/16;
+    padding-left: $grid-padding/32;
+    padding-right: $grid-padding/32;
     @include breakpoint($bp-gte-medium) {
-      padding-left: $grid-padding/8;
+      padding-left: $grid-padding/16;
+      padding-right: $grid-padding/16;
     }
     @include breakpoint($bp-gte-large) {
-      padding-left: $grid-padding/4;
+      padding-left: $grid-padding/8;
+      padding-right: $grid-padding/8;
     }
   }
 }
@@ -183,9 +195,11 @@ Collapsed grids have all the properties of regular grids, minus any spacing.
 .g--collapsed{
   @extend .g;
   margin-left:0;
+  margin-right:0;
 
   > .g__item{
     padding-left:0;
+    padding-right:0;
   }
 }
 

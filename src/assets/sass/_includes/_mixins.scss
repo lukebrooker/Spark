@@ -23,7 +23,7 @@
 @mixin x-font-size($to-size, $from-size: $base-font-size) {
   @if not $relative-font-sizing and $from-size != $base-font-size {
     @warn "$relative-font-sizing is false but a relative font size was passed to adjust-font-size-to"; }
-  font-size: $rhythm-unit / ($to-size / $from-size);
+  font-size: $font-unit / ($to-size / $from-size);
 }
 
 // Experimental mixin that tries to set the correct max-width of an element to

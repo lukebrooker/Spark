@@ -2,7 +2,7 @@
 // Divide Component
 // ----------------
 
-.divide {
+%divide {
   border-width: 0;
   border-style: solid;
   @include x-old-ie {
@@ -12,20 +12,21 @@
 }
 
 .d--right {
+  @extend %divide;
   border-right-width: 1px;
 }
 
 .d--left {
-  @extend .divide;
+  @extend %divide;
   border-left-width: 1px;
 }
 
 .d--bottom {
-  @extend .divide;
+  @extend %divide;
   border-bottom-width: 1px;
 }
 
 .d--top {
-  @extend .divide;
+  @extend %divide;
   border-top-width: 1px;
 }

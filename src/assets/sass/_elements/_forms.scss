@@ -22,13 +22,13 @@ You can use the grid component to help with form layout
       <legend>Fieldset Name</legend>
       <input type="text" placeholder="Street">
       <div class="g--tight">
-        <div class="w--2-4 w--s-2-4 g__item">
+        <div class="w--2-4 w--2-4-s g__item">
           <input type="text" placeholder="City">
         </div>
-        <div class="w--1-4 w--s-1-4 g__item">
+        <div class="w--1-4 w--1-4-s g__item">
           <input type="text" placeholder="State">
         </div>
-        <div class="w--1-4 w--s-1-4 g__item">
+        <div class="w--1-4 w--1-4-s g__item">
           <input type="text" placeholder="ZIP">
         </div>
       </div>
